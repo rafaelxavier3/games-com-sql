@@ -1,49 +1,58 @@
 import { useState } from "react";
+import axios from "axios";
 
 import "./styles/app.css";
 
 function App() {
   const [values, setValues] = useState();
 
-  function handleChangeValues(value) {
+  const handleChangeValues = (value) => {
     setValues((prevValue) => ({
       ...prevValue,
       [value.target.name]: value.target.value,
     }));
-  }
+  };
 
   function handleClickButton() {
-    console.log(values);
+    axios
+      .post("http://localhost:5001/register", {
+        name: values.name,
+        price: values.price,
+        category: values.category,
+      })
+      .then((response) => {
+        console.log(response);
+      });
   }
 
   return (
     <div className="app-container">
       <div className="register-container">
         <h1>Game Shop</h1>
-        <div className="area-input">
+        <form className="form">
           <input
             type="text"
-            name="nome"
+            className="register-nome"
+            name="name"
             placeholder="Nome"
-            className="register-input"
             onChange={handleChangeValues}
           />
           <input
             type="text"
-            name="preço"
+            className="register-preço"
+            name="price"
             placeholder="Preço"
-            className="register-input"
             onChange={handleChangeValues}
           />
           <input
             type="text"
-            name="categoria"
+            className="register-categoria"
+            name="category"
             placeholder="Categoria"
-            className="register-input"
             onChange={handleChangeValues}
           />
-          <button onClick={() => handleClickButton()}>Cadastrar</button>
-        </div>
+          <button onClick={handleClickButton}>Cadastrar</button>
+        </form>
       </div>
     </div>
   );
