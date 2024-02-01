@@ -1,0 +1,40 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  padding: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.area-input {
+  background-color: #f2f2f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+  padding: 40px;
+}
+
+.area-input input {
+  width: 270px;
+  border: solid 1px #a5a698;
+  border-radius: 5px;
+  font-size: 1.2em;
+  padding: 4px;
+}
+
+.area-input button {
+  font-size: 1.2em;
+  padding: 7px;
+  margin-top: 17px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #a5a698;
+  color: #000;
+}
